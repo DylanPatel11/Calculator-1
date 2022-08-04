@@ -30,6 +30,13 @@ public class CalculatorRunner implements ActionListener{
 		frame.setSize(420,550);
 		frame.setLayout(null);
 		
+		textfield = new JTextField();
+		textfield.setBounds(50,  25, 300, 50);
+		textfield.setFont(myFont);
+		
+		
+		
+		frame.add(textfield); // add textfield where answer is shown
 		frame.setVisible(true);
 		
 	}
