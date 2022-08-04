@@ -30,12 +30,60 @@ public class CalculatorRunner implements ActionListener{
 		frame.setSize(420,550);
 		frame.setLayout(null);
 		
+		//Answer field added to app
 		textfield = new JTextField();
 		textfield.setBounds(50,  25, 300, 50);
 		textfield.setFont(myFont);
+		textfield.setEditable(false); //makes textfield not editable
+		
+		//buttons added to app
+		addButton = new JButton("+");
+		subButton = new JButton("-");
+		divButton = new JButton("/");
+		multButton = new JButton("*");
+		equButton = new JButton("=");
+		clrButton = new JButton("c");
+		delButton = new JButton("del");
+		deciButton = new JButton(".");
+		
+		functionButtons[0] = addButton;
+		functionButtons[1] = subButton;
+		functionButtons[2] = divButton;
+		functionButtons[3] = multButton;
+		functionButtons[4] = equButton;
+		functionButtons[5] = clrButton;
+		functionButtons[6] = delButton;
+		functionButtons[7] = deciButton;
+
+		//for loop loop 8 times (remember i++ increment by 1) for fucntion buttons
+		for(int i =0;i<8;i++) {
+			functionButtons[i].addActionListener(this); //action listeners are for the clicks of buttons
+			functionButtons[i].setFont(myFont);
+			functionButtons[i].setFocusable(false); // for no outline on button
+		}
+		// number buttons
+		for(int i =0;i<10;i++) {
+			numberButtons[i] = new JButton(String.valueOf(i)); //creating a new button for each number
+			numberButtons[i].addActionListener(this); //action listeners are for the clicks of buttons
+			numberButtons[i].setFont(myFont);
+			numberButtons[i].setFocusable(false); // for no outline on button
+		}
+		// del and clr button bounds
+		delButton.setBounds(50, 430, 145, 50);
+		clrButton.setBounds(205, 430, 145, 50);
 		
 		
+		// panel for buttons set
+		panel =new JPanel();
+		panel.setBounds(50, 100, 300, 300);
+		panel.setLayout(new GridLayout(4,4,10,10));
+		panel.setBackground(Color.GRAY);
 		
+		
+		// add to app so can see when run
+		frame.add(panel);
+		frame.add(delButton);
+		frame.add(clrButton);
 		frame.add(textfield); // add textfield where answer is shown
 		frame.setVisible(true);
 		
