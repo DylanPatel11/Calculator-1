@@ -115,8 +115,15 @@ public class CalculatorRunner implements ActionListener{
 
 	}
 
+	// add function to buttons
 	@Override
 	public void actionPerformed(ActionEvent e) {
+		// number buttons
+		for(int i=0;i<10;i++) {
+				if(e.getSource() == numberButtons[i]) {
+					textfield.setText(textfield.getText().concat(String.valueOf(i)));
+				}
+		}
 		
 	}
 
