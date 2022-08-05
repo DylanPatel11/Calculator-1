@@ -32,7 +32,7 @@ public class CalculatorRunner implements ActionListener{
 		
 		//Answer field added to app
 		textfield = new JTextField();
-		textfield.setBounds(50,  25, 300, 50);
+		textfield.setBounds(50, 25, 300, 50);
 		textfield.setFont(myFont);
 		textfield.setEditable(false); //makes textfield not editable
 		
@@ -81,7 +81,7 @@ public class CalculatorRunner implements ActionListener{
 		panel =new JPanel();
 		panel.setBounds(50, 100, 300, 300);
 		panel.setLayout(new GridLayout(4,4,10,10));
-		panel.setBackground(Color.GRAY);
+		//panel.setBackground(Color.GRAY);
 		
 		//adding buttons to panel no function
 		
@@ -191,13 +191,14 @@ public class CalculatorRunner implements ActionListener{
 			for(int i=0; i<string.length()-1 ;i++) {
 				textfield.setText(textfield.getText()+string.charAt(i));
 			}
+		}
 		//negative button
 		if(e.getSource()==negButton) {
 			double temp = Double.parseDouble(textfield.getText());
-			temp *= -1;
+			temp*=-1;
 			textfield.setText(String.valueOf(temp));
 			}
-		}
+		
 		
 	}
 
