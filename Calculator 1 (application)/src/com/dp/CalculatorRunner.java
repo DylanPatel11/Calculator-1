@@ -16,7 +16,8 @@ public class CalculatorRunner implements ActionListener{
 	JButton deciButton, equButton, delButton, clrButton, negButton;
 	JPanel panel;
 	
-	Font myFont = new Font("Veranda", Font.BOLD,30);
+	Font myFont = new Font("Veranda", Font.BOLD,23);
+	Font ansFont = new Font("Veranda", Font.BOLD,55);
 	
 	double num1=0, num2=0, ans=0;
 	char operator;
@@ -30,10 +31,12 @@ public class CalculatorRunner implements ActionListener{
 		frame.setSize(420,550);
 		frame.setLayout(null);
 		
+		
 		//Answer field added to app
 		textfield = new JTextField();
-		textfield.setBounds(50, 25, 300, 50);
-		textfield.setFont(myFont);
+		textfield.setBounds(40, 35, 320, 80);
+		textfield.setFont(ansFont);
+		textfield.setBackground(Color.WHITE);
 		textfield.setEditable(false); //makes textfield not editable
 		
 		// 
@@ -46,7 +49,7 @@ public class CalculatorRunner implements ActionListener{
 		clrButton = new JButton("c");
 		delButton = new JButton("del");
 		deciButton = new JButton(".");
-		negButton = new JButton("(-)");
+		negButton = new JButton("±");
 		
 		functionButtons[0] = addButton;
 		functionButtons[1] = subButton;
@@ -58,11 +61,11 @@ public class CalculatorRunner implements ActionListener{
 		functionButtons[7] = deciButton;
 		functionButtons[8] = negButton;
 
-		//for loop loop 8 times (remember i++ increment by 1) for fucntion buttons
+		//for loop loop 8 times (remember i++ increment by 1) for function buttons
 		for(int i =0;i<9;i++) {
 			functionButtons[i].addActionListener(this); //action listeners are for the clicks of buttons
 			functionButtons[i].setFont(myFont);
-			functionButtons[i].setFocusable(false); // for no outline on button
+			functionButtons[i].setFocusable(false); // for nooutline on button
 		}
 		// number buttons
 		for(int i =0;i<10;i++) {
@@ -73,19 +76,22 @@ public class CalculatorRunner implements ActionListener{
 		}
 
 		// del, negative, clr button bounds
-		negButton.setBounds(50, 430, 100, 50);
-		delButton.setBounds(150, 430, 100, 50);
-		clrButton.setBounds(250, 430, 100, 50);
+		//negButton.setBounds(50, 430, 100, 50);
+		//delButton.setBounds(150, 430, 100, 50);
+		//clrButton.setBounds(250, 430, 100, 50);
 		
 		// panel for buttons set
 		panel =new JPanel();
-		panel.setBounds(50, 100, 300, 300);
-		panel.setLayout(new GridLayout(4,4,10,10));
+		panel.setBounds(40, 150, 320, 320);
+		panel.setLayout(new GridLayout(5,4,15,15));
 		//panel.setBackground(Color.GRAY);
 		
 		//adding buttons to panel no function
 		
-		
+		panel.add(negButton);
+		panel.add(clrButton);
+		panel.add(delButton);
+		panel.add(divButton);
 		panel.add(numberButtons[7]);
 		panel.add(numberButtons[8]);
 		panel.add(numberButtons[9]);
@@ -101,7 +107,7 @@ public class CalculatorRunner implements ActionListener{
 		panel.add(deciButton);
 		panel.add(numberButtons[0]);
 		panel.add(equButton);
-		panel.add(divButton);
+		
 		
 		
 		
@@ -109,9 +115,9 @@ public class CalculatorRunner implements ActionListener{
 		
 		// add to app so can see when run
 		frame.add(panel);
-		frame.add(negButton);
-		frame.add(clrButton);
-		frame.add(delButton);
+		//frame.add(negButton);
+		//frame.add(clrButton);
+		//frame.add(delButton);
 		frame.add(textfield); // add textfield where answer is shown
 		frame.setVisible(true);
 		
